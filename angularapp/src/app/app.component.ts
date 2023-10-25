@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   public forecasts?: WeatherForecast[];
@@ -15,7 +15,7 @@ export class AppComponent {
     }, error => console.error(error));
   }
 
-  title = 'angularapp';
+  title = 'LoLChest';
 }
 
 interface WeatherForecast {
