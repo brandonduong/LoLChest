@@ -1,3 +1,6 @@
-<section class="results">
-    <app-item *ngFor="let item of items" [item]="item"></app-item>
+<section class="item-container" *ngFor="let item of items">
+    <app-item [item]="item"></app-item>
+    <div>{{bagSize - item.amount}}</div>
 </section>
+{{bagSize}}
+<button type="button" (click)="increaseBagSize()">Carousel</button>

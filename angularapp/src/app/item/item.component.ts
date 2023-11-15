@@ -12,6 +12,5 @@ import { Item } from '../item';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent {
-  value3: number = 10
   @Input() item!: Item;
 }

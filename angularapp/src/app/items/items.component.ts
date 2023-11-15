@@ -11,38 +11,51 @@ import { ItemComponent } from '../item/item.component';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent {
+  bagSize: number = 1
   items: Item[] = [
     {
       name: 'B. F. Sword',
       photo: `assets/sword.webp`,
+      amount: 0,
     },
     {
       name: 'Recurve Bow',
       photo: `assets/bow.webp`,
+      amount: 0,
     },
     {
       name: 'Needlessly Large Rod',
       photo: `assets/rod.webp`,
+      amount: 0,
     },
     {
-      name: 'B. F. Sword',
-      photo: `assets/sword.webp`,
+      name: 'Tear of the Goddess',
+      photo: `assets/tear.webp`,
+      amount: 0,
     },
     {
-      name: 'Recurve Bow',
-      photo: `assets/bow.webp`,
+      name: 'Chain Vest',
+      photo: `assets/chain.webp`,
+      amount: 0,
     },
     {
-      name: 'Needlessly Large Rod',
-      photo: `assets/rod.webp`,
+      name: 'Negatron Cloak',
+      photo: `assets/cloak.webp`,
+      amount: 0,
     },
     {
-      name: 'B. F. Sword',
-      photo: `assets/sword.webp`,
+      name: 'Giant\'s Belt',
+      photo: `assets/belt.webp`,
+      amount: 0,
     },
     {
-      name: 'Recurve Bow',
-      photo: `assets/bow.webp`,
+      name: 'Sparring Gloves',
+      photo: `assets/glove.webp`,
+      amount: 0,
     },
   ]
+
+  increaseBagSize() {
+    this.bagSize += 1
+  }
 }

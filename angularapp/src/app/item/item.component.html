@@ -1,3 +1,5 @@
+<div class="item">
 <img [src]="item.photo" [alt]="item.name"/>
-<p-inputNumber [(ngModel)]="value3" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="1"
-               decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" [min]="0" [max]="3"></p-inputNumber>
+<p-inputNumber [(ngModel)]="item.amount" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="1" [inputStyle]="{'text-align': 'center'}"
+               decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" [min]="0" [max]="3" [size]="1"></p-inputNumber>
+</div>

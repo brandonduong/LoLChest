@@ -5,3 +5,8 @@
 :root {
   --primary-color: #1e90ff;
 }
+
+body {
+  padding: 3rem 7rem;
+  text-align: center;
+}
