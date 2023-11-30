@@ -58,4 +58,31 @@ export class ItemsComponent {
   increaseBagSize() {
     this.bagSize += 1
   }
+
+  decreaseBagSize() {
+    this.bagSize -= 1
+
+    // Ensure all amounts are not > bagSize
+    this.items = this.items.map((item) => {
+      if (item.amount > this.bagSize) {
+        return { ...item, amount: this.bagSize }
+      }
+      return { ...item }
+    })
+  }
+
+  reset() {
+    this.bagSize = 1;
+    this.items = this.items.map((item) => {
+      return {...item,  amount: 0}
+    })
+  }
+
+  totalItemsLeft() {
+    return (this.bagSize * 8) - this.items.reduce((a, b) => a + b.amount, 0)
+  }
+
+  dropChance(amount:number) {
+    return ((this.bagSize - amount) / this.totalItemsLeft() * 100).toFixed(2)
+  }
 }

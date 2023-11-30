@@ -13,4 +13,5 @@ import { Item } from '../item';
 })
 export class ItemComponent {
   @Input() item!: Item;
+  @Input() bagSize!: number;
 }
