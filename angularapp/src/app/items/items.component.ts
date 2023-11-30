@@ -83,6 +83,23 @@ export class ItemsComponent {
   }
 
   dropChance(amount:number) {
-    return ((this.bagSize - amount) / this.totalItemsLeft() * 100).toFixed(2)
+    return parseFloat(((this.bagSize - amount) / this.totalItemsLeft() * 100).toFixed(2))
+  }
+
+  dropChanceStyle(chance:number) {
+    if (chance >= 25) {
+      return 'text-green-500'
+    } else if (chance >= 20) {
+      return 'text-green-700'
+    } else if (chance >= 15) {
+      return 'text-green-900'
+    } else if (chance <= 0) {
+      return 'text-red-500'
+    } else if (chance <= 5) {
+      return 'text-red-700'
+    } else if (chance <= 10) {
+      return 'text-red-900'
+    }
+    return ''
   }
 }
