@@ -11,5 +11,10 @@
 }
 
 body {
-  background: #fff5d9
+  background: #fff5d9;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
 }
