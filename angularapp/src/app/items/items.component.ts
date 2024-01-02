@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Item } from '../item';
 import { ItemComponent } from '../item/item.component';
 
@@ -12,48 +13,13 @@ import { ItemComponent } from '../item/item.component';
 })
 export class ItemsComponent {
   bagSize: number = 1
-  items: Item[] = [
-    {
-      name: 'B. F. Sword',
-      photo: `assets/sword.webp`,
-      amount: 0,
-    },
-    {
-      name: 'Recurve Bow',
-      photo: `assets/bow.webp`,
-      amount: 0,
-    },
-    {
-      name: 'Needlessly Large Rod',
-      photo: `assets/rod.webp`,
-      amount: 0,
-    },
-    {
-      name: 'Tear of the Goddess',
-      photo: `assets/tear.webp`,
-      amount: 0,
-    },
-    {
-      name: 'Chain Vest',
-      photo: `assets/chain.webp`,
-      amount: 0,
-    },
-    {
-      name: 'Negatron Cloak',
-      photo: `assets/cloak.webp`,
-      amount: 0,
-    },
-    {
-      name: 'Giant\'s Belt',
-      photo: `assets/belt.webp`,
-      amount: 0,
-    },
-    {
-      name: 'Sparring Gloves',
-      photo: `assets/glove.webp`,
-      amount: 0,
-    },
-  ]
+  items: Item[] = []
+
+  constructor(http: HttpClient) {
+    http.get<Item[]>('/item').subscribe(result => {
+      this.items = result.map((i) => { return { name: i.name, photo: `assets/${i.photo}.webp`, amount: 0 } });
+    }, error => console.error(error));
+  }
 
   increaseBagSize() {
     this.bagSize += 1
