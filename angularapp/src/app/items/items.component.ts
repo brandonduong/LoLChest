@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Item } from '../item';
 import { ItemComponent } from '../item/item.component';
+import { ItemsService } from '../items.service';
 
 @Component({
   selector: 'app-items',
@@ -14,11 +14,12 @@ import { ItemComponent } from '../item/item.component';
 export class ItemsComponent {
   bagSize: number = 1
   items: Item[] = []
+  itemsService: ItemsService = inject(ItemsService)
 
-  constructor(http: HttpClient) {
-    http.get<Item[]>('/item').subscribe(result => {
-      this.items = result.map((i) => { return { name: i.name, photo: `assets/${i.photo}.webp`, amount: 0 } });
-    }, error => console.error(error));
+  constructor() {
+    this.itemsService.getItems().then((items) => {
+      this.items = items.map((i) => { return { name: i.name, photo: `assets/${i.photo}.webp`, amount:0 } })
+    })
   }
 
   increaseBagSize() {
